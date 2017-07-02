@@ -9,4 +9,4 @@ In order to run the code one should follow the following steps:
 4. Once these jobs are complete, run Part 3. This will use the 5 data points 4 adjacent to the lowest J^2(gamma) value, including the lowest value, and fit a fourth order polynomial to these, which is used to determine an accurate value of gamma for which the J^2(gamma) cost function is minimised.
 5. In the directory with the suffix _OPT the optimised molecule calculations can be found.
 
-For more information on the theory and nuances of the approach read the opt-tuned-functionals-thesis.pdf provided.
+For more information on the theory and nuances of the approach read the opt-tuned-functionals-thesis.pdf or the 2pagesummary.pdf provided.
