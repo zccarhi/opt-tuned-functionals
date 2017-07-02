@@ -1,0 +1,12 @@
+The purpose of this cose is to utilise the range-separated hybrid functional method found in Excitation Gaps of Finite-Sized Systems from Optimally Tuned Range-Separated Hybrid Functionals. J. Chem. Theory Comput., 8:1515–1531, May 2012. It is designed to work on the UCL Legion cluster in a Linux environment using Sun Grid Engine to handle queuing of jobs. It is likely that some alteration will be necessary if attempting to deploy the code in another environment to satisfy the intracasies of different server set ups. Most likely alteration of the MakeShell function in the functions definition.
+The DFT calculations run on NWChem and the code is specifically tuned to read and output NWChem output and input files specifically.
+
+In order to run the code one should follow the following steps:
+
+1. Create a directory with the chosen molecules .nw input file in with all desired inputs and also containg the Gamma_OPT_Package directory.
+2. Run Part 1. This will create directories for input files with gamma values of 0.0, 0.1, 0.2, 0.3, 0.4, 0.5 and submit them to the queueing system.
+3. Once all jobs are complete run Part 2. This will determine the value of gamma with the lowest value of J^2(gamma), the cost function that is to be minimised, and then create ditrectories for and submit jobs for gamma values -0.075, -0.05, -0.025, +0.025, +0.05, +0.075.
+4. Once these jobs are complete, run Part 3. This will use the 5 data points 4 adjacent to the lowest J^2(gamma) value, including the lowest value, and fit a fourth order polynomial to these, which is used to determine an accurate value of gamma for which the J^2(gamma) cost function is minimised.
+5. In the directory with the suffix _OPT the optimised molecule calculations can be found.
+
+For more information on the theory and nuances of the approach read the opt-tuned-functionals-thesis.pdf provided.
